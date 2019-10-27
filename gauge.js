@@ -3,12 +3,9 @@ google.charts.load('current', {'packages':['gauge']});
 var chart;
 
 function drawChart() {
-
 	var data = google.visualization.arrayToDataTable([
 		['Label', 'Value'],
-		['Memory', 80],
-		['CPU', 55],
-		['Network', 68]
+		['', 0]
 	]);
 
 	var options = {
@@ -25,9 +22,8 @@ function drawChart() {
 
 looker.plugins.visualizations.add({
 	create: function(element, config){
-		element.innerHTML = "<h1>Ready to render!</h1>";
+		element.innerHTML = "...";
 		console.log(config)
-		
 		google.charts.setOnLoadCallback(drawChart);
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
@@ -39,7 +35,7 @@ looker.plugins.visualizations.add({
 // 		element.innerHTML = html;
 		
 		var value = data[0][queryResponse.fields.dimensions[0].name]
-		data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+		data.setValue(0, 1, value)
           	chart.draw(data, options);
 		doneRendering()
 	}
