@@ -5,7 +5,7 @@ var chart, updateRequested, value = 0;
 function drawChart() {
 	var data = google.visualization.arrayToDataTable([
 		['Label', 'Value'],
-		['Demo', value]
+		['', value]
 	]);
 
 	var options = {
@@ -15,23 +15,18 @@ function drawChart() {
 		minorTicks: 5
 	};
 
-	chart = new google.visualization.Gauge(document.getElementById('vis'));
+	chart = new google.visualization.Gauge(document.getElementById('vis-chart'));
 
 	chart.draw(data, options);
-	console.log('draw finished')
 }
 
 looker.plugins.visualizations.add({
 	create: function(element, config){
-		element.innerHTML = "...";
-				console.log('create');
-
+		element.innerHTML = '<div style="text-align: center"><div id="vis-chart"/></div>';
 		google.charts.setOnLoadCallback(drawChart);
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
-		console.log('updateAsync');
-		console.log(data);
-		value = data[0][queryResponse.fields.dimensions[0].name]
+		value = data[0][queryResponse.fields.dimensions[0].name].value;
 		console.log('value is', value);
           	chart && chart.draw(data, options);
 		doneRendering()
