@@ -1,11 +1,11 @@
 google.charts.load('current', {'packages':['gauge']});
 
-var chart, updateQueue = [];
+var chart, updateRequested, value;
 
 function drawChart() {
 	var data = google.visualization.arrayToDataTable([
 		['Label', 'Value'],
-		['', 0]
+		['', value || 0]
 	]);
 
 	var options = {
@@ -31,9 +31,8 @@ looker.plugins.visualizations.add({
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
 		console.log('updateAsync');
 		console.log(data);
-		var value = data[0][queryResponse.fields.dimensions[0].name]
-		data.setValue(0, 1, value)
-          	chart.draw(data, options);
+		value = data[0][queryResponse.fields.dimensions[0].name]
+          	chart && chart.draw(data, options);
 		doneRendering()
 	}
 });
