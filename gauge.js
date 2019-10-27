@@ -1,6 +1,6 @@
 google.charts.load('current', {'packages':['gauge']});
 
-var chart;
+var chart, updateQueue = [];
 
 function drawChart() {
 	var data = google.visualization.arrayToDataTable([
@@ -18,22 +18,19 @@ function drawChart() {
 	chart = new google.visualization.Gauge(document.getElementById('vis'));
 
 	chart.draw(data, options);
+	console.log('draw finished')
 }
 
 looker.plugins.visualizations.add({
 	create: function(element, config){
 		element.innerHTML = "...";
-		console.log(config)
+				console.log('create');
+
 		google.charts.setOnLoadCallback(drawChart);
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
-// 		var html = "";
-// 		for(var row of data) {
-// 			var cell = row[queryResponse.fields.dimensions[0].name];
-// 			html += LookerCharts.Utils.htmlForCell(cell);
-// 		}
-// 		element.innerHTML = html;
-		
+		console.log('updateAsync');
+		console.log(data);
 		var value = data[0][queryResponse.fields.dimensions[0].name]
 		data.setValue(0, 1, value)
           	chart.draw(data, options);
