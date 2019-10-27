@@ -5,7 +5,7 @@ var chart, updateRequested, value = 0;
 function drawChart() {
 	var data = google.visualization.arrayToDataTable([
 		['Label', 'Value'],
-		['', value]
+		['Demo', value]
 	]);
 
 	var options = {
