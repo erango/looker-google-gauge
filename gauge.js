@@ -26,6 +26,7 @@ function drawChart() {
 looker.plugins.visualizations.add({
 	create: function(element, config){
 		element.innerHTML = "<h1>Ready to render!</h1>";
+		console.log(config)
 		
 		google.charts.setOnLoadCallback(drawChart);
 	},
@@ -36,6 +37,10 @@ looker.plugins.visualizations.add({
 // 			html += LookerCharts.Utils.htmlForCell(cell);
 // 		}
 // 		element.innerHTML = html;
-// 		doneRendering()
+		
+		var value = data[0][queryResponse.fields.dimensions[0].name]
+		data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          	chart.draw(data, options);
+		doneRendering()
 	}
 });
