@@ -31,9 +31,7 @@ looker.plugins.visualizations.add({
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
 		value = data[0][queryResponse.fields.dimensions[0].name].value;
-		console.log('value is', value);
-		var dataToChart = getDataTable();
-          	chart && chart.draw(dataToChart, options);
+          	chart && chart.draw(getDataTable(), options);
 		doneRendering()
 	},
 	options: {
