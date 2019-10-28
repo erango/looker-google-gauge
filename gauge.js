@@ -3,7 +3,7 @@ google.charts.load('current', {'packages':['gauge']});
 var chart, updateRequested, value = 0;
 
 var options = {
-		width: 400, height: 120,
+		width: 169, height: 169,
 		redFrom: 90, redTo: 100,
 		yellowFrom:75, yellowTo: 90,
 		greenFrom: 0, greenTo: 30,
@@ -26,7 +26,7 @@ function drawChart() {
 
 looker.plugins.visualizations.add({
 	create: function(element, config){
-		element.innerHTML = '<div style="text-align: center"><div id="vis-chart"/></div>';
+		element.innerHTML = '<div><div style="margin: auto;"><div id="vis-chart"/></div></div>';
 		google.charts.setOnLoadCallback(drawChart);
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
