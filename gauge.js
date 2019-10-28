@@ -35,5 +35,54 @@ looker.plugins.visualizations.add({
 		var dataToChart = getDataTable();
           	chart && chart.draw(dataToChart, options);
 		doneRendering()
+	},
+	options: {
+	    color_range: {
+	      type: "array",
+	      label: "Color Range",
+	      display: "colors"
+	    },
+	   from: {
+	      type: "number",
+	      label: "From",
+	      placeholder: "0"
+	    },
+	   from: {
+	      type: "number",
+	      label: "To",
+	      placeholder: "100"
+	    },
+	   redFrom: {
+	      type: "number",
+	      label: "Red starts at",
+	      placeholder: "0"
+	    },
+	    redTo: {
+	      type: "number",
+	      label: "Red ends at",
+	      placeholder: "30"
+	    },
+		
+	   yellowFrom: {
+	      type: "number",
+	      label: "Yellow starts at",
+	      placeholder: "70"
+	    },
+	    yellowTo: {
+	      type: "number",
+	      label: "Yellow ends at",
+	      placeholder: "90"
+	    },
+		
+	   greenFrom: {
+	      type: "number",
+	      label: "Red starts at",
+	      placeholder: "90"
+	    },
+	    greenTo: {
+	      type: "number",
+	      label: "Red ends at",
+	      placeholder: "100"
+	    }
 	}
 });
