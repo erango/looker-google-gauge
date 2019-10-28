@@ -6,6 +6,7 @@ var options = {
 		width: 400, height: 120,
 		redFrom: 90, redTo: 100,
 		yellowFrom:75, yellowTo: 90,
+		greenColor: '#33cc99', yellowColor: '#fdaf48', redColor: '#f06e7f',
 		minorTicks: 5
 	};
 
