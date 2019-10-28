@@ -11,7 +11,7 @@ var options = {
 	};
 
 function getDataTable() {
-	return data = google.visualization.arrayToDataTable([
+	return google.visualization.arrayToDataTable([
 		['Label', 'Value'],
 		['', value]
 	]);
