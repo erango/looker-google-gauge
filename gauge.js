@@ -43,44 +43,46 @@ looker.plugins.visualizations.add({
 	   from: {
 	      type: "number",
 	      label: "From",
-	      placeholder: "0"
+	      placeholder: "Min value",
+	      default: 0
 	    },
-	   from: {
+	   to: {
 	      type: "number",
 	      label: "To",
-	      placeholder: "100"
+	      placeholder: "Max value",
+	      default: 100
 	    },
 	   redFrom: {
 	      type: "number",
 	      label: "Red starts at",
-	      placeholder: "0"
+	      default: 0
 	    },
 	    redTo: {
 	      type: "number",
 	      label: "Red ends at",
-	      placeholder: "30"
+	      default: 30
 	    },
 		
 	   yellowFrom: {
 	      type: "number",
 	      label: "Yellow starts at",
-	      placeholder: "70"
+	      default: 70
 	    },
 	    yellowTo: {
 	      type: "number",
 	      label: "Yellow ends at",
-	      placeholder: "90"
+	      default: 90
 	    },
 		
 	   greenFrom: {
 	      type: "number",
 	      label: "Red starts at",
-	      placeholder: "90"
+	      default: 90
 	    },
 	    greenTo: {
 	      type: "number",
 	      label: "Red ends at",
-	      placeholder: "100"
+	      default: 100
 	    }
 	}
 });
