@@ -2,21 +2,20 @@ google.charts.load('current', {'packages':['gauge']});
 
 var chart, updateRequested, value = 0;
 
-function drawChart() {
-	var data = google.visualization.arrayToDataTable([
-		['Label', 'Value'],
-		['', value]
-	]);
-
-	var options = {
+var options = {
 		width: 400, height: 120,
 		redFrom: 90, redTo: 100,
 		yellowFrom:75, yellowTo: 90,
 		minorTicks: 5
 	};
 
-	chart = new google.visualization.Gauge(document.getElementById('vis-chart'));
+function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+		['Label', 'Value'],
+		['', value]
+	]);
 
+	chart = new google.visualization.Gauge(document.getElementById('vis-chart'));
 	chart.draw(data, options);
 }
 
