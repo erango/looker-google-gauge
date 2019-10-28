@@ -26,7 +26,7 @@ function drawChart() {
 
 looker.plugins.visualizations.add({
 	create: function(element, config){
-		element.innerHTML = '<div style="display: inline-block; margin: auto;"><div id="vis-chart"/></div>';
+		element.innerHTML = '<div style="display: table; margin: auto;"><div id="vis-chart"/></div>';
 		google.charts.setOnLoadCallback(drawChart);
 	},
 	updateAsync: function(data, element, config, queryResponse, details, doneRendering){
